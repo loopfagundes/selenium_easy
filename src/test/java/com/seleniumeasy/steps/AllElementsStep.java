@@ -1,11 +1,8 @@
 package com.seleniumeasy.steps;
 
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.service.ExtentTestManager;
 import com.github.javafaker.Faker;
 import com.seleniumeasy.pageobjects.AllElementsPageObject;
-import com.seleniumeasy.utils.CloseAds;
-import com.seleniumeasy.utils.Screenshot;
+import com.seleniumeasy.widgets.CloseAds;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -33,7 +30,7 @@ public class AllElementsStep {
 
     private AllElementsStep simpleFormDemo() {
         String textMessagem = faker.chuckNorris().fact();
-        CloseAds.autoCloseAds(allElementsPageObject.closeAddThisButton());
+        CloseAds.adClosed(allElementsPageObject.closeAddThisButton());
         allElementsPageObject.simpleFormDemoButton().click();
         allElementsPageObject.enterMessageTextField().sendKeys(textMessagem);
         allElementsPageObject.showMessageButton().click();

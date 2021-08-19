@@ -2,7 +2,7 @@
 <suite name = "AllTest" verbose="1">
     <test name = "Teste de todos elementos.">
         <classes>
-
+            <class name="com.seleniumeasy.testcases.AllElementsTestCase"></class>
         </classes>
     </test>
 </suite>

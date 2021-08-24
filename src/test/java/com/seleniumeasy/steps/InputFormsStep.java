@@ -1,8 +1,10 @@
 package com.seleniumeasy.steps;
 
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.service.ExtentTestManager;
 import com.github.javafaker.Faker;
 import com.seleniumeasy.pageobjects.InputFormsPageObject;
-import com.seleniumeasy.widgets.CloseAds;
+import com.seleniumeasy.utils.Screenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -31,7 +33,12 @@ public class InputFormsStep {
 
     private InputFormsStep singleInputField() {
         String textMessagem = faker.chuckNorris().fact();
-        CloseAds.adClosed(inputFormsPageObject.closeAddThisButton());
+        if (inputFormsPageObject.closeAddThisButton().isDisplayed()) {
+            inputFormsPageObject.closeAddThisButton().click();
+            ExtentTestManager.getTest().log(Status.PASS, "AddThis is closed!");
+        } else {
+            ExtentTestManager.getTest().log(Status.FAIL, "AddThis must be closed.", Screenshot.capture());
+        }
         inputFormsPageObject.simpleFormDemoButton().click();
         inputFormsPageObject.enterMessageTextField().sendKeys(textMessagem);
         inputFormsPageObject.showMessageButton().click();

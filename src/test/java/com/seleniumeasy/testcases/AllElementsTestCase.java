@@ -16,6 +16,7 @@ public class AllElementsTestCase extends BaseTest {
         InputFormsStep inputFormsStep = new InputFormsStep(driver);
         inputFormsStep
                 .simpleFormDemo()
-                .checkboxDemo();
+                .checkboxDemo()
+                .radioButtonsDemo();
     }
 }

@@ -71,6 +71,29 @@ public class InputFormsStep {
 
     private InputFormsStep multiCheckBox() {
         inputFormsPageObject.multiCheckAllButton().click();
+        inputFormsPageObject.menuInputFormsButton().click();
+        return this;
+    }
+
+    public InputFormsStep radioButtonsDemo() {
+        radioGenreButtonDemo();
+        groupRadioButtonsDemo();
+        return this;
+    }
+
+    private InputFormsStep radioGenreButtonDemo() {
+        inputFormsPageObject.accessRadioButtonsDemosButton().click();
+        inputFormsPageObject.genreCheckBox().click();
+        inputFormsPageObject.getCheckedValueButton().click();
+        Assert.assertEquals(inputFormsPageObject.validateClickOnRadioLabel().getText(), "Radio button 'Male' is checked");
+        return this;
+    }
+
+    private InputFormsStep groupRadioButtonsDemo() {
+        inputFormsPageObject.groupRadioSexCheckbox().click();
+        inputFormsPageObject.groupRadioAgeCheckbox().click();
+        inputFormsPageObject.getValuesGroupRadioButton().click();
+        Assert.assertEquals(inputFormsPageObject.validateGroupRadioGetValuesLabel().getText().replaceAll("\\n", " "), "Sex : Female Age group: 15 - 50");
         return this;
     }
 }

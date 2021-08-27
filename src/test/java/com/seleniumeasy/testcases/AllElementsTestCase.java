@@ -1,6 +1,9 @@
 package com.seleniumeasy.testcases;
 
-import com.seleniumeasy.steps.InputFormsStep;
+import com.seleniumeasy.steps.inputforms.CheckboxDemoStep;
+import com.seleniumeasy.steps.inputforms.SelectDropdownListStep;
+import com.seleniumeasy.steps.inputforms.RadioButtonsDemoStep;
+import com.seleniumeasy.steps.inputforms.SimpleFormDemoStep;
 import com.seleniumeasy.utils.BaseTest;
 import com.seleniumeasy.utils.Property;
 import com.seleniumeasy.webdrivers.DriverManager;
@@ -13,10 +16,13 @@ public class AllElementsTestCase extends BaseTest {
     public void practiceSuccessfullyTest() {
         WebDriver driver = DriverManager.getDriver();
         driver.get(Property.get("url"));
-        InputFormsStep inputFormsStep = new InputFormsStep(driver);
-        inputFormsStep
-                .simpleFormDemo()
-                .checkboxDemo()
-                .radioButtonsDemo();
+        SimpleFormDemoStep simpleFormDemoStep = new SimpleFormDemoStep(driver);
+        simpleFormDemoStep.simpleFormDemo();
+        CheckboxDemoStep checkboxDemoStep = new CheckboxDemoStep(driver);
+        checkboxDemoStep.checkboxDemo();
+        RadioButtonsDemoStep radioButtonsDemoStep = new RadioButtonsDemoStep(driver);
+        radioButtonsDemoStep.radioButtonsDemo();
+        SelectDropdownListStep selectDropdownListStep = new SelectDropdownListStep(driver);
+        selectDropdownListStep.selectDropdownList();
     }
 }
